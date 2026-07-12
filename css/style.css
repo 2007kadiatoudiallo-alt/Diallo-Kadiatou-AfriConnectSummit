@@ -1598,3 +1598,92 @@ input, select, textarea {
     white-space: nowrap;
   }
 }
+
+
+/* ===== NAVBAR AU SCROLL (shrink + ombre renforcée) ===== */
+.navbar-scrolled {
+  padding: 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-scrolled .navbar-container {
+  padding: var(--espacement-xs) var(--espacement-md);
+}
+
+.navbar-scrolled .navbar-logo {
+  font-size: 1.4rem;
+}
+
+/* ===== DARK MODE ===== */
+body.dark-mode {
+  --couleur-fond: #121826;
+  --couleur-fond-alt: #1c2534;
+  --couleur-texte: #e8eaed;
+  --couleur-texte-clair: #a0a8b5;
+  --couleur-bordure: #2c3648;
+}
+
+body.dark-mode .navbar {
+  background-color: var(--couleur-fond);
+}
+
+body.dark-mode .nav-link {
+  color: var(--couleur-secondaire);
+}
+
+body.dark-mode .nav-link:hover {
+  background-color: var(--couleur-fond-alt);
+  color: #ffffff;
+}
+
+body.dark-mode .argument,
+body.dark-mode .carte-intervenant,
+body.dark-mode .carte-thematique,
+body.dark-mode .logo-sponsor {
+  background-color: var(--couleur-fond-alt);
+  border-color: var(--couleur-bordure);
+}
+
+body.dark-mode .nom-intervenant,
+body.dark-mode .argument-titre,
+body.dark-mode .thematique-titre,
+body.dark-mode .entete-section h2 {
+  color: #ffffff;
+}
+
+body.dark-mode .tableau-planning {
+  background-color: var(--couleur-fond-alt);
+}
+
+body.dark-mode .tableau-planning .ligne-paire {
+  background-color: #1c2534;
+}
+
+body.dark-mode .tableau-planning .ligne-impaire {
+  background-color: #121826;
+}
+
+body.dark-mode .tableau-planning td {
+  color: var(--couleur-texte);
+  border-bottom-color: var(--couleur-bordure);
+}
+
+body.dark-mode .groupe-champ input,
+body.dark-mode .groupe-champ select,
+body.dark-mode .groupe-champ textarea {
+  background-color: var(--couleur-fond-alt);
+  border-color: var(--couleur-bordure);
+  color: var(--couleur-texte);
+}
+
+body.dark-mode .question-titre {
+  color: var(--couleur-texte);
+}
+
+body.dark-mode .faq {
+  background-color: var(--couleur-fond-alt);
+}
+
+body.dark-mode .question {
+  border-bottom-color: var(--couleur-bordure);
+}
