@@ -1739,7 +1739,7 @@ body.dark-mode .question {
 .stat-number {
   font-size: 2.8rem;
   font-weight: 800;
-  color: var(--couleur-primaire);
+  color: rgb(215, 160, 57);
   font-family: var(--police-titres);
   line-height: 1;
 }
@@ -1780,5 +1780,199 @@ body.dark-mode .question {
 
   .stat-number {
     font-size: 2.2rem;
+  }
+}
+
+/* ===== SECTION INSCRIPTION EN CARTES ===== */
+.section-inscription {
+  padding: var(--espacement-xl) var(--espacement-md);
+  background-color: var(--couleur-fond-alt);
+}
+
+.conteneur-inscription {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: var(--espacement-xl);
+  align-items: flex-start;
+}
+
+.colonne-formulaire,
+.colonne-informations {
+  flex: 1;
+  background-color: var(--couleur-fond);
+  border-radius: 16px;
+  padding: var(--espacement-xl);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--couleur-bordure);
+  transition: var(--transition-defaut);
+}
+
+.colonne-formulaire:hover,
+.colonne-informations:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.colonne-formulaire h2,
+.colonne-informations h2 {
+  color: var(--couleur-primaire);
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: var(--espacement-lg);
+  position: relative;
+  padding-bottom: var(--espacement-md);
+}
+
+.colonne-formulaire h2::after,
+.colonne-informations h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--couleur-secondaire);
+  border-radius: 2px;
+}
+
+/* ===== CHAMPS DU FORMULAIRE ===== */
+.groupe-champ {
+  margin-bottom: var(--espacement-md);
+  display: flex;
+  flex-direction: column;
+}
+
+.groupe-champ label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--couleur-texte);
+  margin-bottom: var(--espacement-xs);
+}
+
+.requis {
+  color: var(--couleur-accent);
+}
+
+.groupe-champ input,
+.groupe-champ select,
+.groupe-champ textarea {
+  padding: var(--espacement-sm);
+  border: 1.5px solid var(--couleur-bordure);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: var(--couleur-texte);
+  background-color: var(--couleur-fond-alt);
+  transition: var(--transition-defaut);
+}
+
+.groupe-champ input:focus,
+.groupe-champ select:focus,
+.groupe-champ textarea:focus {
+  outline: none;
+  border-color: var(--couleur-primaire);
+  background-color: var(--couleur-fond);
+  box-shadow: 0 0 0 3px rgba(15, 41, 66, 0.08);
+}
+
+.groupe-champ input.valide,
+.groupe-champ select.valide,
+.groupe-champ textarea.valide {
+  border-color: #2e7d32;
+}
+
+.groupe-champ input.invalide,
+.groupe-champ select.invalide,
+.groupe-champ textarea.invalide {
+  border-color: #c62828;
+}
+
+.message-erreur {
+  color: #c62828;
+  font-size: 0.8rem;
+  margin-top: var(--espacement-xs);
+  min-height: 16px;
+}
+
+.message-succes {
+  display: none;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  padding: var(--espacement-sm);
+  border-radius: 10px;
+  margin-top: var(--espacement-md);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.message-succes.visible {
+  display: block;
+}
+
+#formulaire-inscription button[type="submit"] {
+  width: 100%;
+  margin-top: var(--espacement-sm);
+  padding: var(--espacement-sm) var(--espacement-lg);
+  border-radius: 10px;
+}
+
+/* ===== BLOCS D'INFORMATIONS ===== */
+.bloc-info {
+  margin-bottom: var(--espacement-lg);
+  padding-bottom: var(--espacement-lg);
+  border-bottom: 1px solid var(--couleur-bordure);
+}
+
+.bloc-info:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.bloc-info h3 {
+  color: var(--couleur-primaire);
+  font-size: 1.05rem;
+  margin-bottom: var(--espacement-xs);
+}
+
+.bloc-info p {
+  color: var(--couleur-texte-clair);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.colonne-informations .reseaux-sociaux {
+  display: flex;
+  gap: var(--espacement-sm);
+}
+
+.colonne-informations .icone-sociale {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--couleur-fond-alt);
+  border: 1px solid var(--couleur-bordure);
+  border-radius: 50%;
+  color: var(--couleur-primaire);
+  transition: var(--transition-defaut);
+}
+
+.colonne-informations .icone-sociale:hover {
+  background-color: var(--couleur-secondaire);
+  color: #ffffff;
+  border-color: var(--couleur-secondaire);
+  transform: translateY(-3px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .conteneur-inscription {
+    flex-direction: column;
+  }
+
+  .colonne-formulaire,
+  .colonne-informations {
+    padding: var(--espacement-lg);
   }
 }
