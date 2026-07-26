@@ -241,3 +241,82 @@ if (ongletsBoutons.length > 0) {
     });
   });
 }
+
+// ===== FADE IN AU SCROLL - GÉNÉRAL (TOUTES SECTIONS) =====
+const elementsFadeIn = document.querySelectorAll('.fade-in');
+
+if (elementsFadeIn.length > 0) {
+  const fadeInObserver = new IntersectionObserver((entrees) => {
+    entrees.forEach(entree => {
+      if (entree.isIntersecting) {
+        entree.target.classList.add('visible');
+        fadeInObserver.unobserve(entree.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  elementsFadeIn.forEach(element => {
+    fadeInObserver.observe(element);
+  });
+}
+
+
+// ===== MENU BURGER (MOBILE) =====
+const burger = document.getElementById('burger');
+const navbarLinks = document.getElementById('navbar-links');
+
+if (burger && navbarLinks) {
+  burger.addEventListener('click', () => {
+    navbarLinks.classList.toggle('ouvert');
+    burger.classList.toggle('actif');
+  });
+
+  // Fermer le menu quand on clique sur un lien
+  const liens = navbarLinks.querySelectorAll('.nav-link');
+  liens.forEach(lien => {
+    lien.addEventListener('click', () => {
+      navbarLinks.classList.remove('ouvert');
+      burger.classList.remove('actif');
+    });
+  });
+}
+
+// ===== COMPTEURS ANIMÉS AU SCROLL - CHIFFRES CLÉS =====
+const statNumbers = document.querySelectorAll('.stat-number');
+
+function animerCompteur(element) {
+  const cible = parseInt(element.getAttribute('data-target'));
+  const avecSigne = element.textContent.trim().startsWith('+');
+  const duree = 2000;
+  const etapes = 60;
+  const increment = cible / etapes;
+  let valeurActuelle = 0;
+  let etapeActuelle = 0;
+
+  const intervalle = setInterval(() => {
+    etapeActuelle++;
+    valeurActuelle += increment;
+
+    if (etapeActuelle >= etapes) {
+      element.textContent = (avecSigne ? '+' : '') + cible;
+      clearInterval(intervalle);
+    } else {
+      element.textContent = (avecSigne ? '+' : '') + Math.floor(valeurActuelle);
+    }
+  }, duree / etapes);
+}
+
+if (statNumbers.length > 0) {
+  const statsObserver = new IntersectionObserver((entrees) => {
+    entrees.forEach(entree => {
+      if (entree.isIntersecting) {
+        animerCompteur(entree.target);
+        statsObserver.unobserve(entree.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  statNumbers.forEach(stat => {
+    statsObserver.observe(stat);
+  });
+}
